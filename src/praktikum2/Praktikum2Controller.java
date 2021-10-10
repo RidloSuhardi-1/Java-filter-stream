@@ -61,7 +61,12 @@ public class Praktikum2Controller {
                 int temp = 0;
                 List<Integer> list = new ArrayList<>();
                 
-                while ((temp=reader.read()) != -1) {                    
+                byte[] bytes = new byte[8];
+                int j = reader.read(bytes);
+                
+                System.out.println("Total bytes read : " + j);
+                
+                while ((temp=reader.read(bytes)) != -1) {                    
                     list.add(temp);
                 }
                 
