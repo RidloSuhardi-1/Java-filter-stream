@@ -61,12 +61,12 @@ public class Praktikum2Controller {
                 int temp = 0;
                 List<Integer> list = new ArrayList<>();
                 
-                byte[] bytes = new byte[8];
-                int j = reader.read(bytes);
+//                byte[] bytes = new byte[8];
+//                int j = reader.read(bytes);
+//                
+//                System.out.println("Total bytes read : " + j);
                 
-                System.out.println("Total bytes read : " + j);
-                
-                while ((temp=reader.read(bytes)) != -1) {                    
+                while ((temp=reader.read()) != -1) {                    
                     list.add(temp);
                 }
                 
@@ -104,7 +104,7 @@ public class Praktikum2Controller {
                  String contents = view.getTxtPane().getText();
                  if (contents != null && !contents.isEmpty()) {
                      writer = new BufferedOutputStream(new FileOutputStream(loadFile.getSelectedFile()));
-                     writer.write(contents.getBytes());
+                     writer.write(contents.getBytes(), 0, 16);
                      JOptionPane.showMessageDialog(view, "File berhasil ditulis.", "Informasi", JOptionPane.INFORMATION_MESSAGE);
                  }
              } catch (FileNotFoundException ex) {
